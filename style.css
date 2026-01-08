@@ -1,0 +1,487 @@
+/* =========================================
+   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS
+========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap');
+
+:root {
+    /* Cores da Marca */
+    --brand-purple: #6c4cff;
+    --brand-dark: #0a0a0a; /* Preto quase absoluto (Nike Style) */
+    --brand-gray: #f5f5f5;
+    --brand-white: #ffffff;
+    --brand-accent: #ccff00; /* Verde Neon para destaque (Baseado na sua imagem) */
+    
+    /* UI */
+    --shadow-soft: 0 10px 30px rgba(0,0,0,0.05);
+    --shadow-hover: 0 15px 40px rgba(0,0,0,0.12);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--brand-white);
+    color: var(--brand-dark);
+    line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+ul { list-style: none; }
+
+/* =========================================
+   2. HEADER MINIMALISTA
+========================================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: var(--brand-white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--brand-dark);
+    text-transform: uppercase;
+}
+
+.logo span { color: var(--brand-purple); }
+
+nav { display: flex; gap: 30px; }
+nav a {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+nav a:hover { color: var(--brand-purple); }
+
+.header-icons { display: flex; gap: 20px; align-items: center; }
+.cart-icon { position: relative; font-weight: 600; cursor: pointer; }
+.cart-count {
+    background: var(--brand-purple);
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    position: absolute;
+    top: -8px;
+    right: -10px;
+}
+
+/* =========================================
+   3. HERO SECTION (IMPACTO VISUAL)
+========================================= */
+.hero {
+    height: 90vh;
+    background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1470&auto=format&fit=crop'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    color: white;
+}
+
+.hero-content { max-width: 600px; }
+
+.hero h1 {
+    font-size: 64px;
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+.hero p { font-size: 18px; margin-bottom: 30px; opacity: 0.9; font-weight: 300; }
+
+.btn-cta {
+    display: inline-block;
+    padding: 15px 40px;
+    background: var(--brand-white);
+    color: var(--brand-dark);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%); /* Estilo esportivo */
+}
+
+.btn-cta:hover {
+    background: var(--brand-accent);
+    transform: translateX(5px);
+}
+
+/* =========================================
+   4. GRID DE PRODUTOS (CLEAN)
+========================================= */
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 800;
+    margin: 80px 0 40px;
+    text-transform: uppercase;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0 5%;
+    margin-bottom: 80px;
+}
+
+.product-card {
+    background: var(--brand-gray);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.product-card:hover { transform: translateY(-5px); }
+
+.product-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    background-color: #e0e0e0;
+}
+
+.product-info {
+    padding: 20px;
+    background: white;
+}
+
+.product-cat {
+    color: #888;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.product-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 5px 0;
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--brand-dark);
+}
+
+.btn-add {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    background: var(--brand-dark);
+    color: white;
+    border: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-add:hover { background: var(--brand-purple); }
+
+/* =========================================
+   5. COLEÇÕES (ESTILO REVISTA)
+========================================= */
+.collections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 600px;
+}
+
+.col-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.col-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.col-item:hover img { transform: scale(1.05); }
+
+.col-text {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    color: white;
+}
+
+.col-text h3 { font-size: 40px; font-weight: 800; text-transform: uppercase; }
+.col-text a { text-decoration: underline; font-weight: 600; }
+
+/* =========================================
+   RESPONSIVO
+========================================= */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 40px; }
+    .collections { grid-template-columns: 1fr; height: auto; }
+    .col-item { height: 300px; }
+    nav { display: none; } /* Menu Mobile simplificado para este exemplo */
+}
+
+/* =========================================
+   6. PÁGINA DE PRODUTOS & FILTROS
+========================================= */
+.page-header {
+    background: var(--brand-dark);
+    color: white;
+    padding: 60px 5%;
+    text-align: center;
+}
+.page-header h1 { font-size: 36px; text-transform: uppercase; letter-spacing: 2px; }
+
+.products-layout {
+    display: flex;
+    padding: 50px 5%;
+    gap: 40px;
+}
+
+.filters {
+    width: 250px;
+    flex-shrink: 0;
+    border-right: 1px solid #eee;
+    padding-right: 20px;
+}
+
+.filter-group h4 { margin-bottom: 15px; font-size: 14px; text-transform: uppercase; }
+.filter-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+}
+.filter-group input { margin-right: 10px; accent-color: var(--brand-dark); }
+
+/* =========================================
+   7. CARRINHO (CLEAN TABLE)
+========================================= */
+.cart-container {
+    padding: 50px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cart-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.cart-items { border-top: 1px solid #eee; }
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item img { width: 80px; height: 80px; object-fit: cover; margin-right: 20px; }
+.cart-item-info h4 { font-size: 16px; margin-bottom: 5px; }
+.cart-item-info p { color: #777; font-size: 14px; }
+
+.cart-summary {
+    background: var(--brand-gray);
+    padding: 30px;
+    border-radius: 4px;
+    height: fit-content;
+}
+
+.cart-summary h3 { margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+.summary-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
+.summary-total { font-size: 20px; font-weight: 800; margin-top: 20px; border-top: 1px solid #ddd; padding-top: 15px; }
+
+/* =========================================
+   8. CHECKOUT (FOCUS MODE)
+========================================= */
+.checkout-body { background: #f9f9f9; }
+.checkout-container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 30px;
+}
+
+.checkout-form, .checkout-review {
+    background: white;
+    padding: 30px;
+    box-shadow: var(--shadow-soft);
+    border-radius: 8px;
+}
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 12px; text-transform: uppercase; }
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fdfdfd;
+}
+.form-group input:focus { border-color: var(--brand-purple); outline: none; }
+
+.payment-options { display: flex; gap: 10px; margin-bottom: 20px; }
+.payment-opt {
+    flex: 1;
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 600;
+}
+.payment-opt.active { border-color: var(--brand-purple); background: #f4f0ff; color: var(--brand-purple); }
+
+/* Responsivo para partes internas */
+@media (max-width: 768px) {
+    .products-layout, .cart-grid, .checkout-grid { grid-template-columns: 1fr; flex-direction: column; }
+    .filters { width: 100%; border-right: none; border-bottom: 1px solid #eee; margin-bottom: 30px; }
+}
+
+/* =========================================
+   CORE & RESET (Tipografia Profissional)
+========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,800;1,800&display=swap');
+
+:root {
+    --bg-color: #ffffff;
+    --text-primary: #111111; /* Preto Nike */
+    --text-secondary: #707072; /* Cinza Neutro */
+    --brand-purple: #6c4cff; /* Sua cor original (Detalhes) */
+    --brand-neon: #ccff00; /* AQUELE Verde da sua imagem (Foco em Ação) */
+    --gray-light: #f5f5f5;
+    --border-color: #e5e5e5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+
+body { background: var(--bg-color); color: var(--text-primary); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+
+/* =========================================
+   HEADER (Sticky & Clean)
+========================================= */
+header {
+    background: #fff;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo { font-size: 20px; font-weight: 900; letter-spacing: -0.5px; text-transform: uppercase; font-style: italic; }
+.logo span { color: var(--brand-purple); }
+
+nav { display: flex; gap: 30px; }
+nav a { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+nav a:hover { opacity: 0.6; }
+
+.cart-btn { font-weight: 700; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+.cart-count { background: var(--text-primary); color: #fff; border-radius: 50%; width: 20px; height: 20px; display: flex; justify-content: center; align-items: center; font-size: 10px; }
+
+/* =========================================
+   COMPONENTES UI
+========================================= */
+.btn-primary {
+    background: var(--text-primary);
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.2s;
+}
+
+.btn-primary:hover { background: var(--brand-purple); }
+
+/* Botão de destaque máximo (Comprar/Finalizar) */
+.btn-neon {
+    background: var(--brand-neon);
+    color: var(--text-primary);
+    padding: 15px 30px;
+    border: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;
+    letter-spacing: 1px;
+}
+.btn-neon:hover { filter: brightness(0.9); }
+
+/* =========================================
+   CARRINHO (Layout Moderno)
+========================================= */
+.cart-page { max-width: 1100px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
+.cart-list { border-top: 1px solid var(--border-color); }
+
+.cart-item { display: flex; padding: 20px 0; border-bottom: 1px solid var(--border-color); gap: 20px; }
+.cart-item img { width: 100px; height: 100px; object-fit: cover; background: var(--gray-light); }
+.item-info { flex: 1; }
+.item-info h3 { font-size: 16px; font-weight: 700; margin-bottom: 5px; }
+.item-info p { font-size: 14px; color: var(--text-secondary); }
+.item-remove { color: red; font-size: 12px; font-weight: 600; margin-top: 10px; cursor: pointer; display: inline-block; }
+
+.cart-summary { background: var(--gray-light); padding: 30px; height: fit-content; position: sticky; top: 80px; }
+.cart-summary h2 { font-size: 20px; margin-bottom: 20px; text-transform: uppercase; }
+.summary-row { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 14px; }
+.total-row { font-weight: 800; font-size: 18px; border-top: 1px solid #ddd; padding-top: 20px; margin-top: 20px; }
+
+/* =========================================
+   CHECKOUT (Minimalista Seguro)
+========================================= */
+.checkout-wrap { max-width: 800px; margin: 40px auto; padding: 20px; }
+.checkout-steps { display: flex; gap: 40px; }
+.step-form { flex: 1; }
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; }
+.form-input { width: 100%; padding: 14px; border: 1px solid var(--border-color); background: #fff; font-size: 14px; outline: none; }
+.form-input:focus { border-color: var(--text-primary); }
+
+.payment-methods { display: flex; gap: 10px; margin-bottom: 20px; }
+.pm-card { flex: 1; border: 1px solid var(--border-color); padding: 15px; text-align: center; cursor: pointer; font-weight: 600; font-size: 12px; }
+.pm-card.active { border-color: var(--brand-purple); background: #f4f0ff; color: var(--brand-purple); }
+
+/* =========================================
+   RESPONSIVO
+========================================= */
+@media (max-width: 768px) {
+    .cart-page, .checkout-steps { grid-template-columns: 1fr; flex-direction: column; }
+    header { padding: 0 20px; }
+    nav { display: none; } /* Menu Mobile oculto por simplicidade */
+}

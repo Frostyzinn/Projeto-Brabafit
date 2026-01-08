@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Finalizar Compra | BRABAS FITNESS</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="checkout-body">
+
+<header style="justify-content: center;">
+    <div class="logo">BRABAS<span>FIT</span> <span style="font-size:12px; color:#777; font-weight:400;">| SEGURO</span></div>
+</header>
+
+<div class="checkout-container">
+    <div class="checkout-grid">
+        
+        <div class="checkout-form">
+            <h2 style="margin-bottom:20px;">Entrega</h2>
+            
+            <div class="form-group">
+                <label>E-mail</label>
+                <input type="email" placeholder="seu@email.com">
+            </div>
+
+            <div style="display:flex; gap:10px;">
+                <div class="form-group" style="flex:1;">
+                    <label>Nome</label>
+                    <input type="text" placeholder="Primeiro Nome">
+                </div>
+                <div class="form-group" style="flex:1;">
+                    <label>Sobrenome</label>
+                    <input type="text" placeholder="Sobrenome">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Endereço</label>
+                <input type="text" placeholder="Rua, Número, Bairro">
+            </div>
+
+            <h2 style="margin:30px 0 20px;">Pagamento</h2>
+            
+            <div class="payment-options">
+                <div class="payment-opt active">Crédito</div>
+                <div class="payment-opt">Pix (-5%)</div>
+                <div class="payment-opt">Boleto</div>
+            </div>
+
+            <div class="form-group">
+                <label>Número do Cartão</label>
+                <input type="text" placeholder="0000 0000 0000 0000">
+            </div>
+
+            <div style="display:flex; gap:10px;">
+                <div class="form-group" style="flex:1;">
+                    <label>Validade</label>
+                    <input type="text" placeholder="MM/AA">
+                </div>
+                <div class="form-group" style="flex:1;">
+                    <label>CVV</label>
+                    <input type="text" placeholder="123">
+                </div>
+            </div>
+
+            <button class="btn-cta" style="width:100%; border:none; cursor:pointer; margin-top:20px;">Pagar Agora 🔒</button>
+        </div>
+
+        <div class="checkout-review">
+            <h3>Seu Pedido</h3>
+            <div id="checkout-items-list" style="margin:20px 0; border-bottom:1px solid #eee; padding-bottom:20px;">
+                <p style="color:#777; font-size:14px;">Carregando itens...</p>
+            </div>
+            
+            <div class="summary-row" style="font-size:18px; font-weight:800;">
+                <span>Total a pagar:</span>
+                <span id="totalCheckoutFinal">R$ 0,00</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+    // Script específico para preencher o resumo do checkout
+    document.addEventListener("DOMContentLoaded", () => {
+        let lista = document.getElementById("checkout-items-list");
+        let totalSpan = document.getElementById("totalCheckoutFinal");
+        let total = 0;
+
+        if(lista && carrinho.length > 0) {
+            lista.innerHTML = "";
+            carrinho.forEach(item => {
+                let div = document.createElement("div");
+                div.style.display = "flex";
+                div.style.justifyContent = "space-between";
+                div.style.marginBottom = "10px";
+                div.style.fontSize = "14px";
+                div.innerHTML = `<span>${item.nome}</span> <span>R$ ${item.preco.toFixed(2)}</span>`;
+                lista.appendChild(div);
+                total += item.preco;
+            });
+            totalSpan.innerText = "R$ " + total.toFixed(2);
+        } else if (lista) {
+            lista.innerHTML = "<p>Carrinho vazio</p>";
+        }
+    });
+</script>
+</body>
+</html>

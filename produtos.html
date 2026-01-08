@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Produtos | BRABAS FITNESS</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header>
+    <div class="logo">BRABAS<span>FIT</span></div>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="produtos.html" style="color:var(--brand-purple)">Produtos</a>
+        <a href="colecoes.html">Coleções</a>
+    </nav>
+    <div class="header-icons">
+        <div class="cart-icon" onclick="window.location.href='carrinho.html'">
+            SAC ( <span id="cart-count">0</span> )
+        </div>
+    </div>
+</header>
+
+<div class="page-header">
+    <h1>Catálogo Completo</h1>
+    <p>Tecnologia e estilo para sua melhor performance</p>
+</div>
+
+<section class="products-layout">
+    <aside class="filters">
+        <div class="filter-group">
+            <h4>Categoria</h4>
+            <label><input type="checkbox"> Leggings</label>
+            <label><input type="checkbox"> Tops</label>
+            <label><input type="checkbox"> Conjuntos</label>
+            <label><input type="checkbox"> Acessórios</label>
+        </div>
+        <br>
+        <div class="filter-group">
+            <h4>Tamanho</h4>
+            <label><input type="checkbox"> P</label>
+            <label><input type="checkbox"> M</label>
+            <label><input type="checkbox"> G</label>
+            <label><input type="checkbox"> GG</label>
+        </div>
+    </aside>
+
+    <div class="products-grid" style="width: 100%; padding: 0; margin: 0;">
+        
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1506619216599-9d16d0903dfd?auto=format&fit=crop&w=600&q=80" class="product-img">
+            <div class="product-info">
+                <p class="product-cat">Conjunto</p>
+                <h3 class="product-title">Power Suit V2</h3>
+                <p class="product-price">R$ 189,90</p>
+                <button class="btn-add" onclick="addCarrinho('Power Suit V2', 189.90)">Adicionar</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1545912453-db258ca9b7b7?auto=format&fit=crop&w=600&q=80" class="product-img">
+            <div class="product-info">
+                <p class="product-cat">Legging</p>
+                <h3 class="product-title">Legging Sculpt</h3>
+                <p class="product-price">R$ 99,90</p>
+                <button class="btn-add" onclick="addCarrinho('Legging Sculpt', 99.90)">Adicionar</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1616874535244-73aea5daadb9?auto=format&fit=crop&w=600&q=80" class="product-img">
+            <div class="product-info">
+                <p class="product-cat">Top</p>
+                <h3 class="product-title">Top Crossfit</h3>
+                <p class="product-price">R$ 79,90</p>
+                <button class="btn-add" onclick="addCarrinho('Top Crossfit', 79.90)">Adicionar</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" class="product-img">
+            <div class="product-info">
+                <p class="product-cat">Shorts</p>
+                <h3 class="product-title">Biker Shorts Pro</h3>
+                <p class="product-price">R$ 89,90</p>
+                <button class="btn-add" onclick="addCarrinho('Biker Shorts Pro', 89.90)">Adicionar</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

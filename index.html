@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRABAS FITNESS | Performance Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">BRABAS<span>FIT</span></div>
+        <nav>
+            <a href="#">Lançamentos</a>
+            <a href="#">Coleções</a>
+            <a href="#">Acessórios</a>
+            <a href="#">Outlet</a>
+        </nav>
+        <div class="header-icons">
+            <a href="login.html">Conta</a>
+            <div class="cart-icon" onclick="window.location.href='carrinho.html'">
+                CARRINHO (<span id="cart-count">0</span>)
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Domine o seu<br>Treino.</h1>
+            <p>A nova coleção Power Compression foi desenhada para quem não aceita menos que o máximo.</p>
+            <a href="#produtos" class="btn-cta">Comprar Agora</a>
+        </div>
+    </section>
+
+    <section class="collections">
+        <div class="col-item">
+            <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=1470&auto=format&fit=crop" alt="Leggings">
+            <div class="col-text">
+                <h3>Leggings</h3>
+                <a href="#">Ver coleção</a>
+            </div>
+        </div>
+        <div class="col-item">
+            <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=1375&auto=format&fit=crop" alt="Tops">
+            <div class="col-text">
+                <h3>Tops Pro</h3>
+                <a href="#">Ver coleção</a>
+            </div>
+        </div>
+    </section>
+
+    <h2 class="section-title" id="produtos">Tendências da Semana</h2>
+    
+    <section class="products-grid">
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1506619216599-9d16d0903dfd?auto=format&fit=crop&w=600&q=80" class="product-img">
+            <div class="product-info">
+                <p class="product-cat">Performance</p>
+                <h3 class="product-title">Conjunto Power V2</h3>
+                <p class="product-price">R$ 189,90</p>
+                <button class="btn-add" onclick="addCarrinho('Conjunto Power V2', 189.90)">Adicionar à Sacola</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1545912453-db258ca9b7b7?auto=format&fit=crop&w=600&q=80" class="product-img">
+            <div class="product-info">
+                <p class="product-cat">Essence</p>
+                <h3 class="product-title">Legging Sculpt</h3>
+                <p class="product-price">R$ 99,90</p>
+                <button class="btn-add" onclick="addCarrinho('Legging Sculpt', 99.90)">Adicionar à Sacola</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1616874535244-73aea5daadb9?auto=format&fit=crop&w=600&q=80" class="product-img">
+            <div class="product-info">
+                <p class="product-cat">Acessórios</p>
+                <h3 class="product-title">Top Crossfit</h3>
+                <p class="product-price">R$ 79,90</p>
+                <button class="btn-add" onclick="addCarrinho('Top Crossfit', 79.90)">Adicionar à Sacola</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
